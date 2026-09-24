@@ -58,9 +58,9 @@ function CollegeRouteHandler() {
   console.log("CollegeRouteHandler mounted. collegeId:", collegeId, "college:", college);
 
   if (!college) {
-    console.warn("College not found in registry! Redirecting to /sri-gitam. collegeId:", collegeId);
-    // If the college is not found, redirect to a default college or show a 404
-    return <Navigate to="/sri-gitam" replace />;
+    console.warn("College not found in registry! Redirecting to /teja. collegeId:", collegeId);
+    // If the college is not found, redirect to default college
+    return <Navigate to="/teja" replace />;
   }
 
   return (
@@ -78,7 +78,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/:collegeId/*" element={<CollegeRouteHandler />} />
-          <Route path="/" element={<Navigate to="/sri-gitam" replace />} />
+          <Route path="/" element={<Navigate to="/teja" replace />} />
         </Routes>
       </Router>
     </ErrorBoundary>
