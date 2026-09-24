@@ -18,21 +18,23 @@ export function SgAbout({ sectionConfig, onAction, data }) {
           </div>
           
           <div className="sg-about-content-side">
-            <span className="eyebrow">{sectionConfig.eyebrow}</span>
+            {sectionConfig.eyebrow && <span className="sg-eyebrow">{sectionConfig.eyebrow}</span>}
             <h2 className="sg-about-title">
               {sectionConfig.title.split('\n').map((line, i) => <span key={i} style={{display:'block'}}>{line}</span>)}
             </h2>
             <p className="sg-about-body">{sectionConfig.content}</p>
             
             <div className="sg-about-features-grid">
-              {sectionConfig.features.map((feature, i) => {
-                const IconComponent = ICONS[feature.icon] || BookOpen;
+              {(sectionConfig.features || []).map((feature, i) => {
+                const labelText = typeof feature === 'string' ? feature : (feature?.label || feature?.title || '');
+                const iconKey = typeof feature === 'object' ? feature?.icon : null;
+                const IconComponent = (iconKey && ICONS[iconKey]) ? ICONS[iconKey] : BookOpen;
                 return (
                   <div key={i} className="sg-about-feature">
                     <div className="sg-feature-icon">
                       <IconComponent size={20} />
                     </div>
-                    <span className="sg-feature-label">{feature.label}</span>
+                    <span className="sg-feature-label">{labelText}</span>
                   </div>
                 );
               })}

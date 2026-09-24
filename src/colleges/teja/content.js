@@ -210,10 +210,10 @@ const tejaCollegeData = {
           headline: "Your Path to Competitive Success",
           content: "Teja Academy is our dedicated competitive-examination coaching division for government recruitment examinations in Telugu & English Medium.\n\n• APPSC Groups: Group I, II, III & IV\n• Police Recruitment: SI & Constable\n• Teaching Careers: TET I & II, DSC\n• General Competitive Exams: NRA CET\n\nLed by Director G. Tejeswara Reddy with 500+ Government Job Selections*.",
           features: [
-            "APPSC Group I, II, III & IV Comprehensive Coaching",
-            "Police Recruitment: SI & Constable Physical & Written Prep",
-            "Teacher Eligibility & Recruitment: TET I & II and DSC",
-            "Telugu & English Medium instruction with rigorous test series"
+            { icon: "Target", label: "APPSC Group I, II, III & IV Comprehensive Coaching" },
+            { icon: "ShieldCheck", label: "Police Recruitment: SI & Constable Physical & Written Prep" },
+            { icon: "BookOpen", label: "Teacher Eligibility & Recruitment: TET I & II and DSC" },
+            { icon: "Award", label: "Telugu & English Medium instruction with rigorous test series" }
           ],
           image: "/teja/gallery/teja_event_celebration.png",
           cta: { label: "Explore Teja Academy →", action: "navigate_to", target: "academics" }
@@ -281,17 +281,18 @@ const tejaCollegeData = {
           id: "teja-about-home",
           type: "sg-about",
           enabled: true,
+          eyebrow: "OUR PHILOSOPHY",
           title: "College Philosophy",
           headline: "Dream Big. Learn Deep. Prepare with Purpose.",
           content: "At Teja Junior College, we strive to create an environment where academic learning, competitive preparation, mentorship and student development come together to help students move confidently toward their future goals.\n\n\"The Secret Behind Every Successful Student\" is our promise to foster deep subject mastery, hands-on scientific experimentation, and a disciplined winning mindset.",
           features: [
-            "5 Dedicated Laboratories: Physics, Chemistry, Botany, Zoology & English",
-            "50-Computer Online Examination Lab for CBT testing simulation",
-            "5,000+ Library Books for comprehensive academic reference",
-            "30 & 60-Seater structured classrooms for interactive student-teacher engagement"
+            { icon: "Compass", label: "5 Dedicated Laboratories (Physics, Chemistry, Botany, Zoology & English)" },
+            { icon: "Target", label: "50-Computer Digital Online Examination Lab for CBT simulation" },
+            { icon: "BookOpen", label: "5,000+ Library Books for comprehensive academic reference" },
+            { icon: "Users", label: "30 & 60-Seater structured classrooms for focused attention" }
           ],
-          image: "/teja/gallery/teja_toppers_celebration_cake.jpg",
-          cta: { label: "Learn More About Teja", action: "navigate_to", target: "about" }
+          image: "/teja/gallery/teja_campus_corridor.png",
+          cta: { label: "Learn More About Teja →", action: "navigate_to", target: "about" }
         },
         {
           id: "teja-admissions-cta",

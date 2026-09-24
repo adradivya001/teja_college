@@ -143,43 +143,59 @@
 }
 
 /* Cinematic Hero Section */
+.teja-app-root .sg-hero-section,
 .teja-app-root .sg-hero,
 .teja-app-root .sg-inner-hero {
   background: linear-gradient(135deg, var(--teja-purple) 0%, #4D168E 60%, var(--teja-magenta-dark) 100%) !important;
   position: relative;
   overflow: hidden;
+  padding-bottom: 64px !important;
 }
+.teja-app-root .sg-hero-section .sg-hero-title,
 .teja-app-root .sg-hero-title,
 .teja-app-root .sg-inner-title {
   color: var(--teja-white) !important;
   font-weight: 800 !important;
 }
+.teja-app-root .sg-hero-section .sg-hero-title .editorial-italic,
 .teja-app-root .sg-hero-title .editorial-italic {
   color: var(--teja-yellow) !important;
   font-style: normal !important;
 }
+.teja-app-root .sg-hero-section .sg-hero-subtitle,
 .teja-app-root .sg-hero-subtitle,
 .teja-app-root .sg-inner-subtitle {
   color: #F6EAF5 !important;
   font-weight: 400 !important;
+  font-size: 17px !important;
+  line-height: 1.7 !important;
+  opacity: 0.95 !important;
 }
+.teja-app-root .sg-hero-section .sg-eyebrow,
+.teja-app-root .sg-inner-hero .sg-eyebrow,
 .teja-app-root .sg-eyebrow {
+  background: rgba(255, 210, 0, 0.15) !important;
   color: var(--teja-yellow) !important;
+  border: 1px solid rgba(255, 210, 0, 0.4) !important;
   font-weight: 800 !important;
   letter-spacing: 0.12em !important;
 }
 
 /* Hero Section Primary/Secondary CTAs on Dark BG */
+.teja-app-root .sg-hero-section .btn-primary,
 .teja-app-root .sg-hero .btn-primary {
   background: var(--teja-magenta) !important;
   color: var(--teja-white) !important;
   border-color: var(--teja-magenta) !important;
+  box-shadow: 0 4px 18px rgba(233, 0, 127, 0.4) !important;
 }
+.teja-app-root .sg-hero-section .btn-secondary,
 .teja-app-root .sg-hero .btn-secondary {
   background: transparent !important;
   border: 2px solid var(--teja-white) !important;
   color: var(--teja-white) !important;
 }
+.teja-app-root .sg-hero-section .btn-secondary:hover,
 .teja-app-root .sg-hero .btn-secondary:hover {
   background: var(--teja-white) !important;
   color: var(--teja-purple) !important;
@@ -187,9 +203,10 @@
 
 /* Hero Highlights Bar */
 .teja-app-root .sg-hero-highlights {
-  background: rgba(34, 8, 75, 0.6) !important;
+  background: rgba(34, 8, 75, 0.7) !important;
   backdrop-filter: blur(12px) !important;
   border: 1px solid rgba(233, 0, 127, 0.3) !important;
+  margin-top: 48px !important;
 }
 .teja-app-root .sg-highlight-icon-wrapper {
   background: rgba(233, 0, 127, 0.2) !important;
@@ -364,6 +381,53 @@
   max-height: 440px !important;
   object-fit: contain !important;
   background: #FFF0F7;
+}
+
+.teja-app-root .sg-about-section {
+  background-color: var(--teja-light-pink) !important;
+}
+.teja-app-root .sg-about-title {
+  color: var(--teja-purple) !important;
+  font-weight: 800 !important;
+}
+.teja-app-root .sg-about-body {
+  color: var(--teja-text) !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+}
+.teja-app-root .sg-about-feature {
+  border-bottom: 1px solid var(--teja-pink-border) !important;
+  padding-bottom: 16px !important;
+}
+.teja-app-root .sg-about-feature .sg-feature-icon {
+  background-color: #FFE6F4 !important;
+  color: var(--teja-magenta) !important;
+  border: 1px solid rgba(233, 0, 127, 0.25) !important;
+}
+.teja-app-root .sg-about-feature .sg-feature-label {
+  color: var(--teja-purple) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+}
+.teja-app-root .sg-about-image-container {
+  border: 2px solid rgba(233, 0, 127, 0.25) !important;
+  box-shadow: 0 12px 36px rgba(53, 16, 111, 0.1) !important;
+  border-radius: 20px !important;
+  background: #FFEAF5 !important;
+}
+.teja-app-root .sg-about-img {
+  object-fit: cover !important;
+}
+.teja-app-root .sg-text-btn {
+  color: var(--teja-magenta) !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  transition: all 0.2s ease !important;
+}
+.teja-app-root .sg-text-btn:hover {
+  color: var(--teja-magenta-dark) !important;
+  transform: translateX(4px);
 }
 
 .teja-app-root .sg-result-block {

@@ -5,6 +5,7 @@ import { SgAcademicsPage } from './SgAcademicsPage';
 import { SgProgrammesPage } from './SgProgrammesPage';
 import { SgWhyUsPage } from './SgWhyUsPage';
 import { SgCampusPage } from './SgCampusPage';
+import { SgFacilitiesPage } from './SgFacilitiesPage';
 import { SgStudentLifePage } from './SgStudentLifePage';
 import { SgResultsPage } from './SgResultsPage';
 import { SgAdmissionsPage } from './SgAdmissionsPage';
@@ -18,7 +19,7 @@ const PAGE_MAP = {
   'why-sri-gitam': SgWhyUsPage,
   'why-gitam': SgWhyUsPage,
   'why-teja': SgWhyUsPage,
-  facilities: SgCampusPage,
+  facilities: SgFacilitiesPage,
   campus: SgCampusPage,
   'student-life': SgStudentLifePage,
   results: SgResultsPage,

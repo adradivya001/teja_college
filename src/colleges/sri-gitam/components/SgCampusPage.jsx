@@ -1,148 +1,67 @@
-import React, { useState } from 'react';
-import { MapPin, ExternalLink, BookOpen, FlaskConical, BookMarked, Layers, Users } from 'lucide-react';
+import React from 'react';
+import { MapPin, ExternalLink, ShieldCheck, Phone, Compass, CheckCircle2 } from 'lucide-react';
 import { Container } from '../../../components/common/Container';
 import { SgInnerHero } from './SgInnerHero';
 import { SgCTABanner } from './SgCTABanner';
 import './SgShared.css';
-import './SgCampusFacilities.css';
 
 export function SgCampusPage({ onAction, data }) {
-  const pageData = data?.pages?.facilities?.sections || [];
+  const pageData = data?.pages?.campus?.sections || [];
   const heroData = pageData.find(s => s.type === 'about-hero') || {};
-  const facilitiesData = pageData.find(s => s.type === 'philosophy' || s.type === 'why-us') || {};
   const galleryImages = data?.gallery?.images?.map(i => i.src) || [];
-  const ICONS = { BookOpen, FlaskConical, BookMarked, Layers, Users };
+  const campuses = data?.college?.campuses || [];
   const contact = data?.college?.contact || {};
+
   return (
     <div className="sg-page">
       <SgInnerHero
-        eyebrow={heroData.title || "CAMPUS"}
-        breadcrumb={heroData.title || "Campus"}
-        title={heroData.title || "A Space Designed for Learning"}
-        subtitle={heroData.subtitle || `Explore the learning environment and facilities that support the Intermediate education journey at ${data?.college?.name}.`}
-        image={galleryImages[1] || "/sri-gitam/campus_flag_assembly.png"}
+        eyebrow={heroData.eyebrow || "OUR CAMPUSES & HOSTELS"}
+        breadcrumb="Campuses"
+        title={heroData.title || "Boys Campus, Girls Campus & Urban Centres"}
+        subtitle={heroData.subtitle || "Explore our dedicated boys & girls campuses, residential hostel facilities, and central corporate admissions office in Anantapur."}
+        image={heroData.image || galleryImages[0] || "/teja/gallery/teja_main_building.png"}
       />
 
-      {/* Campus Intro */}
+      {/* Campuses & Hostels Cards */}
       <section className="sg-section sg-section-white">
         <Container maxWidth="1280px">
-          <div className="sg-split">
-            <div className="sg-split-left">
-              <div className="sg-split-img">
-                <img src={galleryImages[1] || "/sri-gitam/campus_flag_assembly.png"} alt={`${data?.college?.name} Campus`} />
-              </div>
-            </div>
-            <div className="sg-split-right">
-              <span className="sg-eyebrow">OUR CAMPUS</span>
-              <h2 className="sg-section-title">An Environment Built Around Learning</h2>
-              <p style={{ fontSize: '16px', color: 'var(--color-muted, #657080)', lineHeight: '1.7', marginBottom: '24px' }}>
-                {data?.college?.name} is located in {data?.college?.location || 'Andhra Pradesh'} — providing students with a learning environment designed to support academic focus, personal growth and daily comfort.
-              </p>
-              <p style={{ fontSize: '16px', color: 'var(--color-muted, #657080)', lineHeight: '1.7', marginBottom: '32px' }}>
-                The campus facilities are organized to support the academic and personal needs of Intermediate students throughout the academic year.
-              </p>
-              <button className="sg-btn-primary" onClick={() => onAction('navigate_to', 'admissions')}>
-                Enquire About Admissions
-              </button>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Facilities — Innovative Card Grid */}
-      <section className="sg-section sg-section-cream">
-        <Container maxWidth="1280px">
           <div className="sg-section-header-center">
-            <span className="sg-eyebrow">CAMPUS FACILITIES</span>
-            <h2 className="sg-section-title">Built for Learning</h2>
+            <span className="sg-eyebrow">CAMPUS NETWORK</span>
+            <h2 className="sg-section-title">Dedicated Campuses Across Anantapur</h2>
             <p className="sg-section-desc sg-section-desc-center">
-              Every space on campus is intentionally designed to support students in their academic journey.
+              Teja Junior College operates dedicated learning campuses and residential hostel environments tailored for safety, study discipline, and focused learning.
             </p>
           </div>
 
-          <div className="sgf-grid">
-            {(facilitiesData.pillars || []).map((f, i) => {
-              const IconComp = ICONS[f.icon] || BookOpen;
-              const accentColors = ['var(--color-sg-peach, #F8E9E3)', 'var(--color-sg-sage, #EAF2EE)', 'var(--color-sg-sand, #F5EFE3)', 'var(--color-sg-lavender, #F0ECF6)'];
-              return (
-                <div key={i} className="sgf-card" style={{ '--card-accent': accentColors[i % accentColors.length] }}>
-                  {/* Background image revealed on hover */}
-                  <div className="sgf-card-bg">
-                    <img src={galleryImages[i % (galleryImages.length || 1)]} alt={f.title} loading="lazy" />
-                    <div className="sgf-card-overlay" />
-                  </div>
-
-                  {/* Default state content */}
-                  <div className="sgf-card-default">
-                    <div className="sgf-icon-wrap">
-                      <IconComp size={26} />
-                    </div>
-                    <span className="sgf-tag">Facility</span>
-                    <h3 className="sgf-title">{f.title}</h3>
-                    <p className="sgf-desc">{f.desc}</p>
-                    <div className="sgf-hover-hint">
-                      <span>Explore</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Hover state — reveal detail */}
-                  <div className="sgf-card-hover">
-                    <div className="sgf-icon-wrap sgf-icon-wrap--light">
-                      <IconComp size={26} />
-                    </div>
-                    <h3 className="sgf-title sgf-title--light">{f.title}</h3>
-                    <p className="sgf-detail">{f.desc}</p>
-                  </div>
-
-                  {/* Number watermark */}
-                  <div className="sgf-num">0{i + 1}</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', marginTop: '32px' }}>
+            {campuses.map((c, i) => (
+              <div key={c.id || i} className="sg-card" style={{ padding: '28px', display: 'flex', flexDirection: 'column', borderRadius: '18px', background: '#FFFFFF', border: '1px solid var(--color-border, #E8E1D9)', boxShadow: '0 8px 24px rgba(53, 16, 111, 0.06)' }}>
+                <div style={{ width: '100%', height: '220px', borderRadius: '14px', overflow: 'hidden', marginBottom: '20px', background: '#22084B' }}>
+                  <img src={c.image || galleryImages[i % (galleryImages.length || 1)]} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#22084B' }} />
                 </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* Gallery */}
-      <section className="sg-section sg-section-white">
-        <Container maxWidth="1280px">
-          <div className="sg-section-header-center">
-            <span className="sg-eyebrow">GALLERY</span>
-            <h2 className="sg-section-title">Campus Life & Facility Gallery</h2>
-            <p className="sg-section-desc sg-section-desc-center">A comprehensive look at life, learning and activities at {data?.college?.name}.</p>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-            {(data?.gallery?.images || []).map((item, i) => (
-              <div 
-                key={i} 
-                className="sg-card"
-                style={{ 
-                  borderRadius: '16px', 
-                  overflow: 'hidden', 
-                  padding: 0,
-                  border: '1px solid var(--color-border, #EDE5D8)',
-                  boxShadow: '0 4px 16px rgba(24, 30, 36, 0.05)',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-                <div style={{ height: '220px', width: '100%', overflow: 'hidden', background: '#F8F4EC' }}>
-                  <img 
-                    src={item.src} 
-                    alt={item.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.3s ease' }} 
-                  />
-                </div>
-                <div style={{ padding: '16px 20px' }}>
-                  <span className="sg-eyebrow" style={{ fontSize: '10px', padding: '2px 8px', marginBottom: '6px' }}>
-                    {item.category || 'Campus'}
-                  </span>
-                  <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--color-text, #181E24)', margin: 0 }}>
-                    {item.title}
-                  </h4>
+                <span className="sg-eyebrow" style={{ fontSize: '11px', marginBottom: '8px', alignSelf: 'flex-start' }}>{c.category || 'CAMPUS'}</span>
+                <h3 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--color-primary, #35106F)', margin: '0 0 12px 0' }}>{c.displayName || c.name}</h3>
+                <p style={{ fontSize: '14.5px', color: 'var(--color-muted, #534D5C)', lineHeight: '1.65', marginBottom: '20px', flex: 1 }}>{c.description}</p>
+                
+                <div style={{ borderTop: '1px solid var(--color-border, #FCE4F2)', paddingTop: '16px', marginTop: 'auto' }}>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginBottom: '12px' }}>
+                    <MapPin size={18} color="var(--color-primary, #E9007F)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                    <p style={{ fontSize: '13.5px', color: 'var(--color-text, #211F24)', margin: 0, lineHeight: '1.5', fontWeight: '500' }}>{c.address}</p>
+                  </div>
+                  {c.phone && (
+                    <p style={{ fontSize: '13.5px', color: 'var(--color-muted, #534D5C)', margin: '0 0 16px 0', fontWeight: '600' }}>
+                      Contact: <a href={`tel:${c.phone}`} style={{ color: 'var(--color-primary, #E9007F)', textDecoration: 'none' }}>{c.phone}</a>
+                    </p>
+                  )}
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address || '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sg-btn-primary"
+                    style={{ display: 'inline-flex', width: '100%', justifyContent: 'center', textDecoration: 'none', padding: '12px 16px', fontSize: '14px' }}
+                  >
+                    <ExternalLink size={15} style={{ marginRight: '8px' }} /> View on Google Maps
+                  </a>
                 </div>
               </div>
             ))}
@@ -150,100 +69,45 @@ export function SgCampusPage({ onAction, data }) {
         </Container>
       </section>
 
-      {/* Campuses & Locations */}
-      {data?.college?.campuses && data?.college?.campuses?.length > 1 ? (
-        <section className="sg-section sg-section-cream" id="campuses">
-          <Container maxWidth="1280px">
-            <div className="sg-section-header-center">
-              <span className="sg-eyebrow">OUR CAMPUSES</span>
-              <h2 className="sg-section-title">Dedicated Campuses Across Anantapur</h2>
-              <p className="sg-section-desc sg-section-desc-center">
-                Teja Junior College operates multiple dedicated centers and campuses to support students throughout the city.
-              </p>
+      {/* Campus Life Highlights */}
+      <section className="sg-section sg-section-cream">
+        <Container maxWidth="1280px">
+          <div className="sg-section-header-center">
+            <span className="sg-eyebrow">RESIDENTIAL & ENVIRONMENT</span>
+            <h2 className="sg-section-title">Hostels & Campus Environment</h2>
+            <p className="sg-section-desc sg-section-desc-center">
+              Comprehensive student care with 24/7 security, nutritious dining, dedicated study hours, and senior warden mentoring.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+            <div className="sg-card" style={{ padding: '24px', borderRadius: '16px' }}>
+              <CheckCircle2 color="var(--color-primary, #E9007F)" size={28} style={{ marginBottom: '12px' }} />
+              <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>Separate Boys & Girls Hostels</h3>
+              <p style={{ fontSize: '14px', color: 'var(--color-muted, #534D5C)', lineHeight: '1.6' }}>Independent campus wings with CCTV surveillance, bio-metric security, and round-the-clock warden care.</p>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px', marginTop: '32px' }}>
-              {data.college.campuses.map((c, i) => (
-                <div key={c.id || i} className="sg-card" style={{ padding: '28px', display: 'flex', flexDirection: 'column', borderRadius: '18px', background: '#FFFFFF', border: '1px solid var(--color-border, #E8E1D9)' }}>
-                  <div style={{ width: '100%', height: '180px', borderRadius: '12px', overflow: 'hidden', marginBottom: '20px', background: 'var(--color-bg, #FAF7F2)' }}>
-                    <img src={c.image || galleryImages[i % galleryImages.length]} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
-                  <span className="sg-eyebrow" style={{ fontSize: '11px', marginBottom: '8px' }}>{c.category || 'CAMPUS'}</span>
-                  <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--color-primary, #12304A)', margin: '0 0 10px 0' }}>{c.displayName || c.name}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--color-muted, #657080)', lineHeight: '1.6', marginBottom: '16px', flex: 1 }}>{c.description}</p>
-                  
-                  <div style={{ borderTop: '1px solid var(--color-border, #E8E1D9)', paddingTop: '16px', marginTop: 'auto' }}>
-                    <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginBottom: '12px' }}>
-                      <MapPin size={16} color="var(--color-secondary, #C99A3D)" style={{ flexShrink: 0, marginTop: '3px' }} />
-                      <p style={{ fontSize: '13px', color: 'var(--color-text, #173042)', margin: 0, lineHeight: '1.5' }}>{c.address}</p>
-                    </div>
-                    {c.phone && (
-                      <p style={{ fontSize: '13px', color: 'var(--color-muted, #657080)', margin: '0 0 16px 0', fontWeight: '600' }}>
-                        Contact: <a href={`tel:${c.phone}`} style={{ color: 'var(--color-primary, #12304A)', textDecoration: 'none' }}>{c.phone}</a>
-                      </p>
-                    )}
-                    <a
-                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address || '')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="sg-btn-primary"
-                      style={{ display: 'inline-flex', width: '100%', justifyContent: 'center', textDecoration: 'none', padding: '10px 16px', fontSize: '13.5px' }}
-                    >
-                      <ExternalLink size={14} style={{ marginRight: '6px' }} /> View on Map
-                    </a>
-                  </div>
-                </div>
-              ))}
+            <div className="sg-card" style={{ padding: '24px', borderRadius: '16px' }}>
+              <CheckCircle2 color="var(--color-primary, #E9007F)" size={28} style={{ marginBottom: '12px' }} />
+              <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>Supervised Study Hours</h3>
+              <p style={{ fontSize: '14px', color: 'var(--color-muted, #534D5C)', lineHeight: '1.6' }}>Structured morning and evening study sessions under the active supervision of resident subject faculty.</p>
             </div>
-          </Container>
-        </section>
-      ) : (
-        /* Single Location Default */
-        <section className="sg-section sg-section-cream">
-          <Container maxWidth="1280px">
-            <div style={{ display: 'flex', gap: '80px', alignItems: 'flex-start' }}>
-              <div style={{ flex: '0 0 40%' }}>
-                <span className="sg-eyebrow">LOCATION</span>
-                <h2 className="sg-section-title">Find {data?.college?.shortName}</h2>
-                <div className="sg-location-block" style={{ marginTop: '32px' }}>
-                  <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', alignItems: 'flex-start' }}>
-                    <MapPin size={20} color="var(--color-secondary, #B6533E)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <p className="sg-location-address">
-                      {contact.address}
-                    </p>
-                  </div>
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address || '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sg-btn-primary"
-                    style={{ display: 'inline-flex', textDecoration: 'none' }}
-                  >
-                    <ExternalLink size={16} /> Get Directions
-                  </a>
-                </div>
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ borderRadius: '16px', overflow: 'hidden', height: '400px', border: '1px solid var(--color-border, #E8E1D9)' }}>
-                  <iframe
-                    title={`${data?.college?.name} Location`}
-                    src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.address || '')}&t=m&z=15&ie=UTF8&iwloc=B&output=embed`}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, display: 'block' }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-              </div>
+            <div className="sg-card" style={{ padding: '24px', borderRadius: '16px' }}>
+              <CheckCircle2 color="var(--color-primary, #E9007F)" size={28} style={{ marginBottom: '12px' }} />
+              <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>Hygienic Dining & Nutrition</h3>
+              <p style={{ fontSize: '14px', color: 'var(--color-muted, #534D5C)', lineHeight: '1.6' }}>Pure vegetarian and non-vegetarian nutritious meals prepared in steam-operated modern kitchens.</p>
             </div>
-          </Container>
-        </section>
-      )}
+            <div className="sg-card" style={{ padding: '24px', borderRadius: '16px' }}>
+              <CheckCircle2 color="var(--color-primary, #E9007F)" size={28} style={{ marginBottom: '12px' }} />
+              <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>Transport & City Connectivity</h3>
+              <p style={{ fontSize: '14px', color: 'var(--color-muted, #534D5C)', lineHeight: '1.6' }}>Fleet of college buses connecting all key routes and suburban neighborhoods of Anantapuramu.</p>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <SgCTABanner
-        title={`Come Visit ${data?.college?.name}`}
-        desc={`Explore our campus and understand what ${data?.college?.shortName} has to offer.`}
+        title={`Visit ${data?.college?.name} Campuses`}
+        desc="Schedule a campus visit to explore classrooms, hostels, sports grounds, and laboratories."
         primaryLabel="Enquire About Admissions"
         primaryTarget="admissions"
         onAction={onAction}
