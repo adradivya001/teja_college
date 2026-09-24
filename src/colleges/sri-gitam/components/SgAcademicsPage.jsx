@@ -34,7 +34,7 @@ export function SgAcademicsPage({ onAction, data }) {
           <div className="sg-split">
             <div className="sg-split-left">
               <div className="sg-split-img">
-                <img src="/sri-gitam/classroom_study.png" alt="Classroom Faculty and Learning" />
+                <img src={introData.image || data?.gallery?.images?.[7]?.src || data?.gallery?.images?.[0]?.src || "/sri-gitam/classroom_study.png"} alt="Classroom Faculty and Learning" />
               </div>
             </div>
             <div className="sg-split-right">
@@ -131,6 +131,47 @@ export function SgAcademicsPage({ onAction, data }) {
           </div>
         </Container>
       </section>
+
+      {/* Teja Academy — Competitive Coaching Division */}
+      {data?.tejaAcademy && (
+        <section className="sg-section sg-section-white" id="teja-academy">
+          <Container maxWidth="1280px">
+            <div className="sg-section-header-center">
+              <span className="sg-eyebrow" style={{ color: 'var(--color-primary, #E9007F)' }}>TEJA ACADEMY</span>
+              <h2 className="sg-section-title">Prepare. Compete. Succeed.</h2>
+              <p className="sg-section-desc sg-section-desc-center">
+                Dedicated competitive coaching for government recruitment examinations (APPSC Groups, Police, Teaching, NRA CET) in Telugu & English Medium.
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginTop: '36px' }}>
+              {(data.tejaAcademy.categories || []).map((cat, idx) => (
+                <div key={idx} className="sg-card" style={{ padding: '28px', borderRadius: '16px', border: '1px solid var(--color-border, #FCE4F2)', display: 'flex', flexDirection: 'column' }}>
+                  <span className="sg-eyebrow" style={{ fontSize: '11px', marginBottom: '8px' }}>{cat.tag || "COMPETITIVE EXAM"}</span>
+                  <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--color-secondary, #35106F)', margin: '0 0 8px 0' }}>{cat.name}</h3>
+                  <p style={{ fontSize: '14px', fontWeight: '700', color: 'var(--color-primary, #E9007F)', margin: '0 0 12px 0' }}>{cat.target}</p>
+                  <p style={{ fontSize: '14px', color: 'var(--color-text-muted, #534D5C)', lineHeight: '1.6', margin: '0 0 16px 0', flex: 1 }}>{cat.description}</p>
+                  <div style={{ borderTop: '1px solid var(--color-border, #FCE4F2)', paddingTop: '12px', fontSize: '12.5px', color: 'var(--color-secondary, #35106F)', fontWeight: '600' }}>
+                    Medium: Telugu & English Medium
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Teja Academy Highlight Bar */}
+            <div style={{ marginTop: '40px', background: 'linear-gradient(135deg, var(--teja-purple, #35106F) 0%, var(--teja-magenta, #E9007F) 100%)', borderRadius: '18px', padding: '36px', color: '#FFFFFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
+              <div>
+                <span style={{ color: 'var(--teja-yellow, #FFD200)', fontWeight: '800', fontSize: '12px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>SELECTION RECORD</span>
+                <h3 style={{ fontSize: '28px', fontWeight: '800', margin: '4px 0 8px 0', color: '#FFFFFF' }}>500+ Government Job Selections*</h3>
+                <p style={{ margin: 0, fontSize: '13px', color: '#F8E6F5' }}>*As stated in Teja Academy promotional material. Guidance led by Director G. Tejeswara Reddy.</p>
+              </div>
+              <button className="sg-btn-primary" style={{ background: 'var(--teja-yellow, #FFD200)', color: 'var(--teja-purple, #35106F)', border: 'none', fontWeight: '800' }} onClick={() => onAction('open_admissions_modal')}>
+                Enquire Academy Coaching
+              </button>
+            </div>
+          </Container>
+        </section>
+      )}
 
       <SgCTABanner
         title={ctaData.title || "Choose a Path That Matches Your Future"}

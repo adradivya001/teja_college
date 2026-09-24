@@ -11,7 +11,7 @@ export function SgHero({ sectionConfig, onAction, data }) {
       <Container maxWidth="1280px">
         <div className="sg-hero-content-wrapper">
           <div className="sg-hero-text-content">
-            <span className="eyebrow">{sectionConfig.eyebrow}</span>
+            <span className="sg-eyebrow">{sectionConfig.eyebrow}</span>
             <h1 className="sg-hero-title">
               {sectionConfig.title.split('\n').map((line, i, arr) => (
                 <span 

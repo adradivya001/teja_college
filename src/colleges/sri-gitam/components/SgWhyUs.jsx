@@ -11,7 +11,7 @@ export function SgWhyUs({ sectionConfig, onAction }) {
       <Container maxWidth="1280px">
         <div className="sg-why-wrapper">
           <div className="sg-why-content-side">
-            <span className="eyebrow">{sectionConfig.eyebrow}</span>
+            <span className="sg-eyebrow">{sectionConfig.eyebrow}</span>
             <h2 className="sg-section-title">{sectionConfig.title}</h2>
             <p className="sg-why-subtitle">{sectionConfig.subtitle}</p>
             <button className="btn-primary sg-mt-4" onClick={() => onAction('navigate_to', sectionConfig.cta.target)}>

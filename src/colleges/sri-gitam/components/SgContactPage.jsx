@@ -77,43 +77,76 @@ export function SgContactPage({ onAction, data }) {
       {/* Address & Map */}
       <section className="sg-section sg-section-cream">
         <Container maxWidth="1280px">
-          <div style={{ display: 'flex', gap: '80px', alignItems: 'flex-start' }}>
-            <div style={{ flex: '0 0 40%' }}>
-              <span className="sg-eyebrow">VISIT US</span>
-              <h2 className="sg-section-title">Visit {cName}</h2>
-              <div style={{ marginTop: '32px', background: 'white', border: '1px solid var(--color-border, #E8E1D9)', borderRadius: '16px', padding: '32px' }}>
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', alignItems: 'flex-start' }}>
-                  <MapPin size={20} color="var(--color-secondary, #B6533E)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                  <p style={{ fontSize: '16px', color: 'var(--color-muted, #657080)', lineHeight: '1.8', margin: 0 }}>
-                    {contact.address}
-                  </p>
+          {data?.college?.campuses && data?.college?.campuses?.length > 1 ? (
+            <div>
+              <span className="sg-eyebrow">OUR CAMPUS LOCATIONS</span>
+              <h2 className="sg-section-title" style={{ marginBottom: '32px' }}>Visit Our Campuses in Anantapur</h2>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+                {data.college.campuses.map((c, i) => (
+                  <div key={c.id || i} style={{ background: 'white', border: '1px solid var(--color-border, #E8E1D9)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column' }}>
+                    <span className="sg-eyebrow" style={{ fontSize: '11px', marginBottom: '6px' }}>{c.category || 'CAMPUS'}</span>
+                    <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--color-primary, #12304A)', margin: '0 0 10px 0' }}>{c.displayName || c.name}</h3>
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: '12px', flex: 1 }}>
+                      <MapPin size={16} color="var(--color-secondary, #C99A3D)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <p style={{ fontSize: '13.5px', color: 'var(--color-muted, #657080)', margin: 0, lineHeight: '1.6' }}>{c.address}</p>
+                    </div>
+                    {c.phone && (
+                      <p style={{ fontSize: '13px', color: 'var(--color-text, #173042)', margin: '0 0 16px 0', fontWeight: '600' }}>
+                        Phone: <a href={`tel:${c.phone}`} style={{ color: 'var(--color-primary, #12304A)', textDecoration: 'none' }}>{c.phone}</a>
+                      </p>
+                    )}
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address || '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sg-btn-primary"
+                      style={{ display: 'inline-flex', textDecoration: 'none', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '10px 16px', fontSize: '13px' }}
+                    >
+                      <ExternalLink size={14} /> Get Directions
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', gap: '80px', alignItems: 'flex-start' }}>
+              <div style={{ flex: '0 0 40%' }}>
+                <span className="sg-eyebrow">VISIT US</span>
+                <h2 className="sg-section-title">Visit {cName}</h2>
+                <div style={{ marginTop: '32px', background: 'white', border: '1px solid var(--color-border, #E8E1D9)', borderRadius: '16px', padding: '32px' }}>
+                  <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', alignItems: 'flex-start' }}>
+                    <MapPin size={20} color="var(--color-secondary, #B6533E)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <p style={{ fontSize: '16px', color: 'var(--color-muted, #657080)', lineHeight: '1.8', margin: 0 }}>
+                      {contact.address}
+                    </p>
+                  </div>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address || '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sg-btn-primary"
+                    style={{ display: 'inline-flex', textDecoration: 'none', alignItems: 'center', gap: '8px' }}
+                  >
+                    <ExternalLink size={16} /> Get Directions
+                  </a>
                 </div>
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address || '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="sg-btn-primary"
-                  style={{ display: 'inline-flex', textDecoration: 'none', alignItems: 'center', gap: '8px' }}
-                >
-                  <ExternalLink size={16} /> Get Directions
-                </a>
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ borderRadius: '16px', overflow: 'hidden', height: '400px', border: '1px solid var(--color-border, #E8E1D9)' }}>
+                  <iframe
+                    title={`${cName} — Contact Map`}
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.address || '')}&t=m&z=15&ie=UTF8&iwloc=B&output=embed`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, display: 'block' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ borderRadius: '16px', overflow: 'hidden', height: '400px', border: '1px solid var(--color-border, #E8E1D9)' }}>
-                <iframe
-                  title={`${cName} — Contact Map`}
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.address || '')}&t=m&z=15&ie=UTF8&iwloc=B&output=embed`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: 'block' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-          </div>
+          )}
         </Container>
       </section>
 

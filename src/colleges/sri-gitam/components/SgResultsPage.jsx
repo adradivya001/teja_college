@@ -80,21 +80,38 @@ export function SgResultsPage({ onAction, data }) {
         </Container>
       </section>
 
-      {/* Achievement Stories */}
+      {/* Achievement Stories / Toppers Grid */}
       <section className="sg-section sg-section-white">
         <Container maxWidth="1280px">
           <div className="sg-section-header-center">
-            <span className="sg-eyebrow">STUDENT STORIES</span>
-            <h2 className="sg-section-title">Achievement Stories</h2>
+            <span className="sg-eyebrow">OUR TOP ACHIEVERS</span>
+            <h2 className="sg-section-title">Meet Our Achievers</h2>
             <p className="sg-section-desc sg-section-desc-center">
-              Individual student achievements and milestones will be featured here with verified information.
+              Celebrating our students who secured State Ranks, NEET All India Honors, and JEE Main distinctions.
             </p>
           </div>
-          <div className="sg-empty-state">
-            <Award size={48} color="var(--color-border, #E8E1D9)" style={{ margin: '0 auto 16px', display: 'block' }} />
-            <h3>Student Achievements</h3>
-            <p>Verified student achievement stories will be added here. This section will be updated as information becomes available.</p>
-          </div>
+
+          {data?.pages?.results?.achievers && data?.pages?.results?.achievers?.length > 0 ? (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginTop: '32px' }}>
+              {data.pages.results.achievers.map((achiever, i) => (
+                <div key={i} className="sg-card" style={{ padding: '24px', borderRadius: '16px', background: '#FFFFFF', border: '1px solid var(--color-border, #E8E1D9)', textAlign: 'center' }}>
+                  <div style={{ width: '130px', height: '130px', borderRadius: '50%', overflow: 'hidden', margin: '0 auto 16px auto', border: '3px solid var(--color-secondary, #C99A3D)', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}>
+                    <img src={achiever.image} alt={achiever.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                  <span className="sg-eyebrow" style={{ fontSize: '11px', marginBottom: '6px', color: 'var(--color-secondary, #C99A3D)' }}>{achiever.rank}</span>
+                  <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--color-primary, #12304A)', margin: '0 0 6px 0' }}>{achiever.name}</h3>
+                  <p style={{ fontSize: '14px', fontWeight: '700', color: 'var(--color-primary, #12304A)', margin: '0 0 4px 0' }}>{achiever.score}</p>
+                  <p style={{ fontSize: '12.5px', color: 'var(--color-muted, #657080)', margin: 0 }}>{achiever.exam}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="sg-empty-state">
+              <Award size={48} color="var(--color-border, #E8E1D9)" style={{ margin: '0 auto 16px', display: 'block' }} />
+              <h3>Student Achievements</h3>
+              <p>Verified student achievement stories will be added here. This section will be updated as information becomes available.</p>
+            </div>
+          )}
         </Container>
       </section>
 

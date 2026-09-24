@@ -150,48 +150,96 @@ export function SgCampusPage({ onAction, data }) {
         </Container>
       </section>
 
-      {/* Location */}
-      <section className="sg-section sg-section-cream">
-        <Container maxWidth="1280px">
-          <div style={{ display: 'flex', gap: '80px', alignItems: 'flex-start' }}>
-            <div style={{ flex: '0 0 40%' }}>
-              <span className="sg-eyebrow">LOCATION</span>
-              <h2 className="sg-section-title">Find {data?.college?.shortName}</h2>
-              <div className="sg-location-block" style={{ marginTop: '32px' }}>
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', alignItems: 'flex-start' }}>
-                  <MapPin size={20} color="var(--color-secondary, #B6533E)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                  <p className="sg-location-address">
-                    {contact.address}
-                  </p>
+      {/* Campuses & Locations */}
+      {data?.college?.campuses && data?.college?.campuses?.length > 1 ? (
+        <section className="sg-section sg-section-cream" id="campuses">
+          <Container maxWidth="1280px">
+            <div className="sg-section-header-center">
+              <span className="sg-eyebrow">OUR CAMPUSES</span>
+              <h2 className="sg-section-title">Dedicated Campuses Across Anantapur</h2>
+              <p className="sg-section-desc sg-section-desc-center">
+                Teja Junior College operates multiple dedicated centers and campuses to support students throughout the city.
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px', marginTop: '32px' }}>
+              {data.college.campuses.map((c, i) => (
+                <div key={c.id || i} className="sg-card" style={{ padding: '28px', display: 'flex', flexDirection: 'column', borderRadius: '18px', background: '#FFFFFF', border: '1px solid var(--color-border, #E8E1D9)' }}>
+                  <div style={{ width: '100%', height: '180px', borderRadius: '12px', overflow: 'hidden', marginBottom: '20px', background: 'var(--color-bg, #FAF7F2)' }}>
+                    <img src={c.image || galleryImages[i % galleryImages.length]} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                  <span className="sg-eyebrow" style={{ fontSize: '11px', marginBottom: '8px' }}>{c.category || 'CAMPUS'}</span>
+                  <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--color-primary, #12304A)', margin: '0 0 10px 0' }}>{c.displayName || c.name}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--color-muted, #657080)', lineHeight: '1.6', marginBottom: '16px', flex: 1 }}>{c.description}</p>
+                  
+                  <div style={{ borderTop: '1px solid var(--color-border, #E8E1D9)', paddingTop: '16px', marginTop: 'auto' }}>
+                    <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginBottom: '12px' }}>
+                      <MapPin size={16} color="var(--color-secondary, #C99A3D)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                      <p style={{ fontSize: '13px', color: 'var(--color-text, #173042)', margin: 0, lineHeight: '1.5' }}>{c.address}</p>
+                    </div>
+                    {c.phone && (
+                      <p style={{ fontSize: '13px', color: 'var(--color-muted, #657080)', margin: '0 0 16px 0', fontWeight: '600' }}>
+                        Contact: <a href={`tel:${c.phone}`} style={{ color: 'var(--color-primary, #12304A)', textDecoration: 'none' }}>{c.phone}</a>
+                      </p>
+                    )}
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address || '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sg-btn-primary"
+                      style={{ display: 'inline-flex', width: '100%', justifyContent: 'center', textDecoration: 'none', padding: '10px 16px', fontSize: '13.5px' }}
+                    >
+                      <ExternalLink size={14} style={{ marginRight: '6px' }} /> View on Map
+                    </a>
+                  </div>
                 </div>
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address || '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="sg-btn-primary"
-                  style={{ display: 'inline-flex', textDecoration: 'none' }}
-                >
-                  <ExternalLink size={16} /> Get Directions
-                </a>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : (
+        /* Single Location Default */
+        <section className="sg-section sg-section-cream">
+          <Container maxWidth="1280px">
+            <div style={{ display: 'flex', gap: '80px', alignItems: 'flex-start' }}>
+              <div style={{ flex: '0 0 40%' }}>
+                <span className="sg-eyebrow">LOCATION</span>
+                <h2 className="sg-section-title">Find {data?.college?.shortName}</h2>
+                <div className="sg-location-block" style={{ marginTop: '32px' }}>
+                  <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', alignItems: 'flex-start' }}>
+                    <MapPin size={20} color="var(--color-secondary, #B6533E)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <p className="sg-location-address">
+                      {contact.address}
+                    </p>
+                  </div>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address || '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sg-btn-primary"
+                    style={{ display: 'inline-flex', textDecoration: 'none' }}
+                  >
+                    <ExternalLink size={16} /> Get Directions
+                  </a>
+                </div>
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ borderRadius: '16px', overflow: 'hidden', height: '400px', border: '1px solid var(--color-border, #E8E1D9)' }}>
+                  <iframe
+                    title={`${data?.college?.name} Location`}
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.address || '')}&t=m&z=15&ie=UTF8&iwloc=B&output=embed`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, display: 'block' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ borderRadius: '16px', overflow: 'hidden', height: '400px', border: '1px solid var(--color-border, #E8E1D9)' }}>
-                <iframe
-                  title={`${data?.college?.name} Location`}
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.address || '')}&t=m&z=15&ie=UTF8&iwloc=B&output=embed`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: 'block' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+          </Container>
+        </section>
+      )}
 
       <SgCTABanner
         title={`Come Visit ${data?.college?.name}`}

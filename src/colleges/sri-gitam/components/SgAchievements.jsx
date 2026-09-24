@@ -12,18 +12,18 @@ export function SgAchievements({ sectionConfig, onAction }) {
         <div className="sg-achievements-grid-split">
           <div className="sg-achievements-img-card">
             <img 
-              src="/sri-gitam/faculty_students_group.png" 
-              alt="Sri GITAM Faculty and Students Group" 
+              src={sectionConfig?.image || "/sri-gitam/faculty_students_group.png"} 
+              alt={sectionConfig?.imageAlt || sectionConfig?.title || "Mentors & Achievers"} 
               className="sg-achievements-group-img"
             />
             <div className="sg-achievements-badge">
-              <span>Our Mentors & Achievers</span>
+              <span>{sectionConfig?.badgeText || "Our Mentors & Achievers"}</span>
             </div>
           </div>
           <div className="sg-achievements-right">
-            <span className="eyebrow">{sectionConfig.eyebrow}</span>
+            <span className="sg-eyebrow">{sectionConfig.eyebrow}</span>
             <h2 className="sg-section-title">{sectionConfig.title}</h2>
-            <p className="sg-why-subtitle">{sectionConfig.subtitle}</p>
+            <p className="sg-section-desc">{sectionConfig.subtitle}</p>
             <div className="sg-achievements-stats">
               {sectionConfig.stats.map((stat, i) => {
                 const IconComponent = ICONS[stat.icon] || Trophy;

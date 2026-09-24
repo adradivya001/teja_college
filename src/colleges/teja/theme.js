@@ -1,39 +1,38 @@
 const tejaTheme = {
-  "motif": "shield",
-  "colors": {
-    "primary": "#12304A",
-    "primaryHover": "#1C4966",
-    "primaryGlow": "rgba(18, 48, 74, 0.3)",
-    "secondary": "#C99A3D",
-    "secondaryHover": "#176B6B",
-    "blue": "#EEF3F7",
-    "gold": "#C99A3D",
-    "goldHover": "#B88E1F",
-    "background": "#FAF7F0",
-    "bgAlt": "#FFFFFF",
-    "cardBg": "#FFFFFF",
-    "cardBorder": "#D9E1E6",
-    "text": "#173042",
-    "textMuted": "#4E6270",
-    "textSubtle": "#6B7C87",
-    "textDark": "#173042",
-    "textDarkMuted": "#4E6270",
-    "textDarkSubtle": "#6B7C87",
-    "bgLight": "#FFFFFF",
-    "surface": "#FFFFFF",
-    "borderLight": "#D9E1E6"
+  motif: "shield",
+  colors: {
+    primary: "#E9007F",        // TEJA MAGENTA / HOT PINK
+    primaryHover: "#C90068",   // DEEP MAGENTA
+    primaryGlow: "rgba(233, 0, 127, 0.3)",
+    secondary: "#35106F",      // DEEP PURPLE
+    secondaryHover: "#E9007F",
+    accentYellow: "#FFD200",   // GOLDEN YELLOW
+    accentCyan: "#00AEEF",     // CYAN / WATER BLUE
+    background: "#FFF4FA",     // VERY LIGHT PINK
+    bgAlt: "#FFFFFF",
+    cardBg: "#FFFFFF",
+    cardBorder: "#FCE4F2",
+    text: "#211F24",           // DARK TEXT
+    textMuted: "#4B4453",
+    textSubtle: "#7E728B",
+    textDark: "#211F24",
+    textDarkMuted: "#4B4453",
+    textDarkSubtle: "#7E728B",
+    bgLight: "#FFFFFF",
+    surface: "#FFFFFF",
+    borderLight: "#FCE4F2"
   },
-  "typography": {
-    "headingFont": "'Outfit', 'Plus Jakarta Sans', sans-serif",
-    "bodyFont": "'Plus Jakarta Sans', sans-serif",
-    "monoFont": "'Space Grotesk', monospace"
+  typography: {
+    headingFont: "'Outfit', 'Plus Jakarta Sans', sans-serif",
+    bodyFont: "'Plus Jakarta Sans', sans-serif",
+    monoFont: "'Space Grotesk', monospace"
   },
-  "radius": {
-    "sm": "6px",
-    "md": "12px",
-    "lg": "16px",
-    "xl": "24px",
-    "full": "9999px"
+  radius: {
+    sm: "6px",
+    md: "12px",
+    lg: "16px",
+    xl: "24px",
+    full: "9999px"
   }
 };
 
