@@ -1,52 +1,60 @@
 .teja-app-root {
   /* =========================================
-     TEJA BRAND COLOR PALETTE (Strict Logo Truth)
+     TEJA LIGHT THEME COLOR SYSTEM
+     70% White/Off-White/Light Pink | 15% Deep Purple | 10% Magenta | 5% Gold/Cyan
      ========================================= */
-  --teja-magenta: #E9007F;       /* TEJA MAGENTA / HOT PINK */
-  --teja-magenta-dark: #C90068;  /* DEEP MAGENTA */
-  --teja-purple: #35106F;        /* DEEP PURPLE */
-  --teja-purple-dark: #22084B;   /* DARK PURPLE */
-  --teja-yellow: #FFD200;        /* GOLDEN YELLOW */
-  --teja-cyan: #00AEEF;          /* CYAN / WATER BLUE */
-  --teja-white: #FFFFFF;         /* WHITE */
-  --teja-light-pink: #FFF4FA;    /* VERY LIGHT PINK */
-  --teja-pink-border: #FCE4F2;   /* SOFT PINK BORDER */
-  --teja-text: #211F24;          /* DARK TEXT */
-  --teja-text-muted: #534D5C;    /* MUTED PURPLE-GRAY TEXT */
+  --teja-bg-main: #FFFCFE;          /* MAIN BACKGROUND */
+  --teja-bg-alt: #FFF5FA;           /* ALTERNATE SECTION BACKGROUND */
+  --teja-card-bg: #FFFFFF;          /* CARD / SURFACE */
+  
+  --teja-magenta: #E9007F;          /* PRIMARY TEJA MAGENTA */
+  --teja-magenta-dark: #B8005F;     /* DARK MAGENTA (HOVER) */
+  --teja-purple: #35106F;           /* DEEP PURPLE (Headings & Authority) */
+  --teja-purple-soft: #F3EDFA;      /* SOFT PURPLE CONTAINER */
+  
+  --teja-gold: #F5C400;             /* GOLD ACCENT */
+  --teja-gold-soft: #FFF8D9;        /* SOFT GOLD */
+  --teja-cyan: #00AEEF;             /* CYAN ACCENT */
+  
+  --teja-text-primary: #241C2B;     /* PRIMARY DARK TEXT */
+  --teja-text-secondary: #665B6B;   /* SECONDARY MUTED TEXT */
+  --teja-border: #EDE3EA;           /* SUBTLE BORDER */
+  --teja-white: #FFFFFF;
 
   /* MAPPING TO MASTER UI COMPONENT VARIABLES */
   --color-primary: var(--teja-magenta);
   --color-primary-dark: var(--teja-magenta-dark);
   --color-secondary: var(--teja-purple);
   --color-secondary-hover: var(--teja-magenta);
-  --color-text: var(--teja-text);
-  --color-muted: var(--teja-text-muted);
-  --color-border: var(--teja-pink-border);
+  --color-text: var(--teja-text-primary);
+  --color-muted: var(--teja-text-secondary);
+  --color-text-muted: var(--teja-text-secondary);
+  --color-border: var(--teja-border);
   --color-white: var(--teja-white);
 
   /* Backgrounds */
-  --color-bg: var(--teja-light-pink);
-  --color-bg-alt: var(--teja-white);
-  --color-background: var(--teja-light-pink);
-  --color-background-soft: var(--teja-white);
-  --color-background-alt: var(--teja-white);
+  --color-bg: var(--teja-bg-main);
+  --color-bg-alt: var(--teja-bg-alt);
+  --color-background: var(--teja-bg-main);
+  --color-background-soft: var(--teja-bg-alt);
+  --color-background-alt: var(--teja-bg-alt);
+  --color-card-bg: var(--teja-card-bg);
 
-  /* Card Colors (All derived strictly from logo palette) */
-  --color-sg-peach: #FFF0F7;     /* Soft Magenta-Pink */
-  --color-sg-sage: #F6F0FF;      /* Soft Light Purple */
-  --color-sg-sand: #FFFBE6;      /* Soft Golden Tint */
-  --color-sg-lavender: #EBF8FF;  /* Soft Cyan Tint */
+  /* Card Colors (Soft Light educational tints) */
+  --color-sg-peach: #FFF5FA;
+  --color-sg-sage: #F3EDFA;
+  --color-sg-sand: #FFF8D9;
+  --color-sg-lavender: #F3EDFA;
 
-  /* Brand Typography */
+  /* Typography */
   --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-serif: 'Newsreader', serif;
 }
 
 /* =========================================
-   OVERRIDE RESETS FOR TEJA BRAND IDENTITY
+   TYPOGRAPHY & GLOBAL CONTRAST
    ========================================= */
-
-/* Typography */
 .teja-app-root h1, 
 .teja-app-root h2, 
 .teja-app-root h3, 
@@ -54,7 +62,9 @@
 .teja-app-root h5, 
 .teja-app-root h6 {
   font-family: var(--font-heading);
-  color: var(--teja-purple);
+  color: var(--teja-purple) !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .teja-app-root body, 
@@ -65,219 +75,397 @@
 }
 
 .teja-app-root p {
-  color: var(--teja-text);
+  color: var(--teja-text-secondary) !important;
   line-height: 1.7 !important;
 }
 
-/* Top Information Bar */
+/* =========================================
+   NAVBAR (CLEAN, WHITE & PREMIUM)
+   ========================================= */
 .teja-app-root .sg-navbar-topbar {
   background-color: var(--teja-purple) !important;
   color: var(--teja-white) !important;
   font-weight: 600 !important;
   border-bottom: 1px solid rgba(233, 0, 127, 0.2) !important;
+  font-size: 13px !important;
 }
 .teja-app-root .sg-navbar-topbar span {
   color: var(--teja-white) !important;
   opacity: 0.95 !important;
 }
-
-/* Navbar */
 .teja-app-root .sg-navbar {
   background: var(--teja-white) !important;
-  border-bottom: 1px solid var(--teja-pink-border) !important;
+  border-bottom: 1px solid var(--teja-border) !important;
+  box-shadow: 0 2px 10px rgba(53, 16, 111, 0.03) !important;
 }
 .teja-app-root .sg-nav-item-label {
-  color: var(--teja-purple) !important;
+  color: var(--teja-text-primary) !important;
   font-weight: 600 !important;
   transition: color 0.2s ease;
 }
+.teja-app-root .sg-nav-item:hover .sg-nav-item-label,
 .teja-app-root .sg-nav-item--active .sg-nav-item-label {
   color: var(--teja-magenta) !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
 }
 .teja-app-root .sg-nav-item-underline {
   background: var(--teja-magenta) !important;
-}
-.teja-app-root .sg-nav-item:hover .sg-nav-item-label {
-  color: var(--teja-magenta) !important;
+  height: 2px !important;
 }
 
-/* Buttons (Primary & Secondary following Strict Teja Button System) */
-.teja-app-root .sg-apply-btn,
+/* Navbar CTA Button */
+.teja-app-root .sg-apply-btn {
+  background: var(--teja-magenta) !important;
+  color: var(--teja-white) !important;
+  border: 1px solid var(--teja-magenta) !important;
+  border-radius: 9999px !important;
+  padding: 10px 24px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(233, 0, 127, 0.2) !important;
+  transition: all 0.2s ease !important;
+}
+.teja-app-root .sg-apply-btn:hover {
+  background: var(--teja-magenta-dark) !important;
+  border-color: var(--teja-magenta-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 0, 95, 0.3) !important;
+}
+
+/* =========================================
+   LIGHT HERO SECTION (NO DARK PURPLE FULL-SCREEN BG)
+   ========================================= */
+.teja-app-root .sg-hero-section,
+.teja-app-root .sg-hero,
+.teja-app-root .sg-inner-hero {
+  background: var(--teja-bg-main) !important;
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 64px 0 !important;
+  border-bottom: 1px solid var(--teja-border) !important;
+}
+
+.teja-app-root .sg-hero-section .sg-hero-title,
+.teja-app-root .sg-hero-title,
+.teja-app-root .sg-inner-title {
+  color: var(--teja-purple) !important;
+  font-size: clamp(38px, 4.8vw, 56px) !important;
+  font-weight: 800 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.025em !important;
+}
+
+/* Highlight important words in hero with Teja Magenta (Not Yellow) */
+.teja-app-root .sg-hero-section .sg-hero-title .editorial-italic,
+.teja-app-root .sg-hero-title .editorial-italic {
+  color: var(--teja-magenta) !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+}
+
+.teja-app-root .sg-hero-section .sg-hero-subtitle,
+.teja-app-root .sg-hero-subtitle,
+.teja-app-root .sg-inner-subtitle {
+  color: var(--teja-text-secondary) !important;
+  font-size: 16.5px !important;
+  line-height: 1.7 !important;
+  font-weight: 400 !important;
+  margin-bottom: 32px !important;
+}
+
+/* Eyebrow Badge: Light Pink background, Magenta text & border */
+.teja-app-root .sg-eyebrow,
+.teja-app-root .sg-hero-section .sg-eyebrow,
+.teja-app-root .sg-inner-hero .sg-eyebrow {
+  background: var(--teja-bg-alt) !important;
+  color: var(--teja-magenta) !important;
+  border: 1px solid rgba(233, 0, 127, 0.25) !important;
+  font-weight: 800 !important;
+  font-size: 11.5px !important;
+  letter-spacing: 0.12em !important;
+  padding: 5px 16px !important;
+  border-radius: 9999px !important;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+/* Hero Action Buttons */
+.teja-app-root .sg-hero-section .btn-primary,
+.teja-app-root .sg-hero .btn-primary,
 .teja-app-root .sg-btn-primary,
 .teja-app-root .btn-primary {
   background: var(--teja-magenta) !important;
   color: var(--teja-white) !important;
-  font-weight: 700 !important;
-  border: 1px solid var(--teja-magenta) !important;
+  border: 1.5px solid var(--teja-magenta) !important;
   border-radius: 9999px !important;
-  padding: 12px 32px !important;
+  padding: 13px 32px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  box-shadow: 0 4px 16px rgba(233, 0, 127, 0.22) !important;
   transition: all 0.25s ease !important;
-  box-shadow: 0 4px 14px rgba(233, 0, 127, 0.25) !important;
 }
-.teja-app-root .sg-apply-btn:hover,
+.teja-app-root .sg-hero-section .btn-primary:hover,
+.teja-app-root .sg-hero .btn-primary:hover,
 .teja-app-root .sg-btn-primary:hover,
 .teja-app-root .btn-primary:hover {
   background: var(--teja-magenta-dark) !important;
   border-color: var(--teja-magenta-dark) !important;
-  color: var(--teja-white) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(201, 0, 104, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(184, 0, 95, 0.3) !important;
 }
 
+.teja-app-root .sg-hero-section .btn-secondary,
+.teja-app-root .sg-hero .btn-secondary,
 .teja-app-root .sg-btn-secondary,
 .teja-app-root .btn-secondary {
-  background: transparent !important;
-  border: 2px solid var(--teja-magenta) !important;
-  color: var(--teja-magenta) !important;
-  font-weight: 700 !important;
+  background: var(--teja-white) !important;
+  border: 2px solid var(--teja-purple) !important;
+  color: var(--teja-purple) !important;
   border-radius: 9999px !important;
-  padding: 12px 32px !important;
+  padding: 12px 30px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
   transition: all 0.25s ease !important;
 }
+.teja-app-root .sg-hero-section .btn-secondary:hover,
+.teja-app-root .sg-hero .btn-secondary:hover,
 .teja-app-root .sg-btn-secondary:hover,
 .teja-app-root .btn-secondary:hover {
-  background: var(--teja-magenta) !important;
-  color: var(--teja-white) !important;
+  background: var(--teja-purple-soft) !important;
+  color: var(--teja-purple) !important;
   transform: translateY(-2px);
 }
 
-/* Cinematic Hero Section */
-.teja-app-root .sg-hero-section,
-.teja-app-root .sg-hero,
-.teja-app-root .sg-inner-hero {
-  background: linear-gradient(135deg, var(--teja-purple) 0%, #4D168E 60%, var(--teja-magenta-dark) 100%) !important;
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 64px !important;
-}
-.teja-app-root .sg-hero-section .sg-hero-title,
-.teja-app-root .sg-hero-title,
-.teja-app-root .sg-inner-title {
-  color: var(--teja-white) !important;
-  font-weight: 800 !important;
-}
-.teja-app-root .sg-hero-section .sg-hero-title .editorial-italic,
-.teja-app-root .sg-hero-title .editorial-italic {
-  color: var(--teja-yellow) !important;
-  font-style: normal !important;
-}
-.teja-app-root .sg-hero-section .sg-hero-subtitle,
-.teja-app-root .sg-hero-subtitle,
-.teja-app-root .sg-inner-subtitle {
-  color: #F6EAF5 !important;
-  font-weight: 400 !important;
-  font-size: 17px !important;
-  line-height: 1.7 !important;
-  opacity: 0.95 !important;
-}
-.teja-app-root .sg-hero-section .sg-eyebrow,
-.teja-app-root .sg-inner-hero .sg-eyebrow,
-.teja-app-root .sg-eyebrow {
-  background: rgba(255, 210, 0, 0.15) !important;
-  color: var(--teja-yellow) !important;
-  border: 1px solid rgba(255, 210, 0, 0.4) !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.12em !important;
-}
-
-/* Hero Section Primary/Secondary CTAs on Dark BG */
-.teja-app-root .sg-hero-section .btn-primary,
-.teja-app-root .sg-hero .btn-primary {
-  background: var(--teja-magenta) !important;
-  color: var(--teja-white) !important;
-  border-color: var(--teja-magenta) !important;
-  box-shadow: 0 4px 18px rgba(233, 0, 127, 0.4) !important;
-}
-.teja-app-root .sg-hero-section .btn-secondary,
-.teja-app-root .sg-hero .btn-secondary {
-  background: transparent !important;
-  border: 2px solid var(--teja-white) !important;
-  color: var(--teja-white) !important;
-}
-.teja-app-root .sg-hero-section .btn-secondary:hover,
-.teja-app-root .sg-hero .btn-secondary:hover {
+/* Hero Image Container (Fills completely with seamless edge-to-edge building photo) */
+.teja-app-root .sg-hero-image-wrapper {
   background: var(--teja-white) !important;
-  color: var(--teja-purple) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 32px rgba(53, 16, 111, 0.08) !important;
+  overflow: hidden !important;
+  height: 460px !important;
+  display: flex !important;
+}
+.teja-app-root .sg-hero-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 35% !important;
+  border-radius: 20px !important;
+  display: block !important;
 }
 
-/* Hero Highlights Bar */
+/* Hero Highlights Bar (Clean Light Container) */
 .teja-app-root .sg-hero-highlights {
-  background: rgba(34, 8, 75, 0.7) !important;
-  backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(233, 0, 127, 0.3) !important;
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 6px 24px rgba(53, 16, 111, 0.05) !important;
   margin-top: 48px !important;
+  padding: 16px 24px !important;
 }
 .teja-app-root .sg-highlight-icon-wrapper {
-  background: rgba(233, 0, 127, 0.2) !important;
-  color: var(--teja-yellow) !important;
+  background: var(--teja-purple-soft) !important;
+  color: var(--teja-magenta) !important;
+  border-radius: 12px !important;
 }
 .teja-app-root .sg-highlight-label {
-  color: var(--teja-white) !important;
-  font-weight: 600 !important;
+  color: var(--teja-text-primary) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
 }
 
-/* Sections Backgrounds */
-.teja-app-root .sg-section-white {
-  background-color: var(--teja-white) !important;
-}
-.teja-app-root .sg-section-cream {
-  background-color: var(--teja-light-pink) !important;
-}
-.teja-app-root .sg-section-title {
-  color: var(--teja-purple) !important;
-  font-weight: 800 !important;
-}
-
-/* Cards (White with Magenta Accents & Soft Pink Borders) */
-.teja-app-root .sg-card {
+/* =========================================
+   STATISTICS STRIP (LIGHT & AIRY)
+   ========================================= */
+.teja-app-root .sg-achievements-section,
+.teja-app-root .sg-stats {
   background: var(--teja-white) !important;
-  border: 1px solid var(--teja-pink-border) !important;
-  box-shadow: 0 6px 20px rgba(53, 16, 111, 0.05) !important;
-  transition: all 0.3s ease !important;
+  border-top: 1px solid var(--teja-border) !important;
+  border-bottom: 1px solid var(--teja-border) !important;
+  padding: 84px 0 !important;
 }
-.teja-app-root .sg-card:hover {
+.teja-app-root .sg-achievements-section .sg-section-title {
+  color: var(--teja-purple) !important;
+}
+.teja-app-root .sg-achievements-section .sg-section-desc,
+.teja-app-root .sg-achievements-section .sg-why-subtitle {
+  color: var(--teja-text-secondary) !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+.teja-app-root .sg-stat-card {
+  background: var(--teja-bg-alt) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 16px !important;
+  padding: 24px 20px !important;
+  box-shadow: 0 4px 16px rgba(53, 16, 111, 0.04) !important;
+  transition: all 0.25s ease !important;
+}
+.teja-app-root .sg-stat-card:hover {
+  background: var(--teja-white) !important;
   border-color: var(--teja-magenta) !important;
-  box-shadow: 0 12px 32px rgba(233, 0, 127, 0.12) !important;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(233, 0, 127, 0.1) !important;
 }
-
-/* Why Teja Section */
-.teja-app-root .sg-why-section,
-.teja-app-root .sg-values-section {
-  background-color: var(--teja-light-pink) !important;
-}
-.teja-app-root .sg-why-icon,
-.teja-app-root .sg-value-icon,
-.teja-app-root .sg-timeline-num {
-  background: #FFE6F4 !important;
+.teja-app-root .sg-stat-icon {
   color: var(--teja-magenta) !important;
+}
+.teja-app-root .sg-stat-value {
+  color: var(--teja-purple) !important;
+  font-size: 28px !important;
   font-weight: 800 !important;
 }
-.teja-app-root .sg-why-card-title,
-.teja-app-root .sg-card h3 {
-  color: var(--teja-purple) !important;
+.teja-app-root .sg-stat-suffix {
+  color: var(--teja-magenta) !important;
+  font-size: 16px !important;
   font-weight: 700 !important;
 }
-.teja-app-root .sg-why-subtitle,
-.teja-app-root .sg-why-card-desc {
-  color: var(--teja-text) !important;
-  line-height: 1.65 !important;
+.teja-app-root .sg-stat-label {
+  color: var(--teja-text-primary) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+.teja-app-root .sg-achievements-img-card {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  overflow: hidden !important;
+}
+.teja-app-root .sg-achievements-group-img {
+  max-height: 420px !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  background: var(--teja-white);
+  display: block;
 }
 
-/* Course / Programmes Section */
+/* =========================================
+   ABOUT SECTION & COLLEGE PHILOSOPHY
+   ========================================= */
+.teja-app-root .sg-about-section {
+  background-color: var(--teja-white) !important;
+  padding: 84px 0 !important;
+}
+.teja-app-root .sg-about-title {
+  color: var(--teja-purple) !important;
+  font-weight: 800 !important;
+  font-size: 38px !important;
+  line-height: 1.2 !important;
+}
+.teja-app-root .sg-about-body {
+  color: var(--teja-text-secondary) !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+}
+.teja-app-root .sg-about-feature {
+  border-bottom: 1px solid var(--teja-border) !important;
+  padding-bottom: 16px !important;
+}
+.teja-app-root .sg-about-feature .sg-feature-icon {
+  background-color: var(--teja-purple-soft) !important;
+  color: var(--teja-magenta) !important;
+  border-radius: 12px !important;
+}
+.teja-app-root .sg-about-feature .sg-feature-label {
+  color: var(--teja-purple) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+}
+.teja-app-root .sg-about-image-container {
+  border: 1px solid var(--teja-border) !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  border-radius: 20px !important;
+  background: var(--teja-white) !important;
+  overflow: hidden !important;
+}
+.teja-app-root .sg-about-img {
+  object-fit: cover !important;
+  border-radius: 20px !important;
+}
+.teja-app-root .sg-text-btn {
+  color: var(--teja-magenta) !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  transition: all 0.2s ease !important;
+}
+.teja-app-root .sg-text-btn:hover {
+  color: var(--teja-magenta-dark) !important;
+  transform: translateX(4px);
+}
+
+/* =========================================
+   WHY TEJA CARDS
+   ========================================= */
+.teja-app-root .sg-why-section,
+.teja-app-root .sg-values-section {
+  background-color: var(--teja-bg-alt) !important;
+  padding: 84px 0 !important;
+}
+.teja-app-root .sg-why-card {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  transition: all 0.3s ease !important;
+}
+.teja-app-root .sg-why-card:hover {
+  border-color: var(--teja-magenta) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(53, 16, 111, 0.10) !important;
+}
+.teja-app-root .sg-why-icon {
+  background: var(--teja-purple-soft) !important;
+  color: var(--teja-magenta) !important;
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 14px !important;
+}
+.teja-app-root .sg-why-card-title {
+  color: var(--teja-purple) !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  margin-bottom: 6px !important;
+}
+.teja-app-root .sg-why-card-desc {
+  color: var(--teja-text-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+/* =========================================
+   COURSES / PROGRAMMES SECTION
+   ========================================= */
+.teja-app-root .sg-programmes-section {
+  background-color: var(--teja-white) !important;
+  padding: 84px 0 !important;
+}
 .teja-app-root .sg-programme-card,
 .teja-app-root .sg-prog-card {
-  border: 1px solid var(--teja-pink-border) !important;
-  box-shadow: 0 8px 24px rgba(53, 16, 111, 0.06) !important;
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  transition: all 0.3s ease !important;
+}
+.teja-app-root .sg-programme-card:hover,
+.teja-app-root .sg-prog-card:hover {
+  border-color: var(--teja-magenta) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(53, 16, 111, 0.10) !important;
 }
 .teja-app-root .sg-programme-card h3,
 .teja-app-root .sg-prog-card h3 {
   color: var(--teja-purple) !important;
+  font-weight: 800 !important;
 }
 .teja-app-root .sg-prog-subjects-line {
   color: var(--teja-magenta) !important;
   font-weight: 700 !important;
+  font-size: 14px !important;
 }
 .teja-app-root .sg-text-link {
   color: var(--teja-magenta) !important;
@@ -287,226 +475,153 @@
   color: var(--teja-magenta-dark) !important;
 }
 .teja-app-root .sg-prog-nav-btn {
-  color: var(--teja-purple) !important;
+  color: var(--teja-text-primary) !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
 }
 .teja-app-root .sg-prog-nav-btn.active {
   background: var(--teja-magenta) !important;
   color: var(--teja-white) !important;
 }
 
-/* Achievements / Statistics Section (Deep Purple Authority & High-Contrast Crisp Text) */
-.teja-app-root .sg-achievements-section,
-.teja-app-root .sg-stats {
-  background: linear-gradient(135deg, var(--teja-purple) 0%, #1e0542 100%) !important;
+/* =========================================
+   TEJA ACADEMY (LIGHT SOFT PURPLE SECTION)
+   ========================================= */
+.teja-app-root #teja-academy-home,
+.teja-app-root .teja-academy-section {
+  background-color: var(--teja-purple-soft) !important;
+  padding: 84px 0 !important;
+  border-top: 1px solid var(--teja-border) !important;
+  border-bottom: 1px solid var(--teja-border) !important;
 }
-.teja-app-root .sg-achievements-section .sg-eyebrow {
-  background: rgba(255, 210, 0, 0.15) !important;
-  color: var(--teja-yellow) !important;
-  border-color: rgba(255, 210, 0, 0.35) !important;
-  font-weight: 800 !important;
-}
-.teja-app-root .sg-achievements-section .sg-section-title {
-  color: var(--teja-white) !important;
-}
-.teja-app-root .sg-achievements-section .sg-section-desc,
-.teja-app-root .sg-achievements-section .sg-why-subtitle {
-  color: #F5E8FB !important;
-  opacity: 0.95 !important;
-  font-size: 16px !important;
-  line-height: 1.7 !important;
-}
-.teja-app-root .sg-stat-card {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(233, 0, 127, 0.4) !important;
-  backdrop-filter: blur(12px) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
-}
-.teja-app-root .sg-stat-card:hover {
-  background: rgba(255, 255, 255, 0.16) !important;
-  border-color: var(--teja-magenta) !important;
-}
-.teja-app-root .sg-stat-icon {
-  color: var(--teja-yellow) !important;
-}
-.teja-app-root .sg-stat-value {
-  color: var(--teja-yellow) !important;
-  font-size: 26px !important;
-  font-weight: 800 !important;
-}
-.teja-app-root .sg-stat-suffix {
-  color: #FFA5D8 !important;
-}
-.teja-app-root .sg-stat-label {
-  color: var(--teja-white) !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-}
-
-/* Image Full Visibility & Proper Framing */
-.teja-app-root .sg-achievements-img-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(233, 0, 127, 0.4) !important;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35) !important;
-  max-height: none !important;
-}
-.teja-app-root .sg-achievements-group-img {
-  max-height: 440px !important;
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-  background: #200747;
-  display: block;
-}
-.teja-app-root .sg-hero-image-wrapper {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 2px solid rgba(233, 0, 127, 0.3) !important;
-  height: auto !important;
-  min-height: 380px !important;
-  max-height: 480px !important;
-}
-.teja-app-root .sg-hero-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  background: #25094f;
-}
-.teja-app-root .sg-split-img {
-  aspect-ratio: auto !important;
-  min-height: 280px;
-  background: #FFF0F7;
-}
-.teja-app-root .sg-split-img img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 440px !important;
-  object-fit: contain !important;
-  background: #FFF0F7;
-}
-
-.teja-app-root .sg-about-section {
-  background-color: var(--teja-light-pink) !important;
-}
-.teja-app-root .sg-about-title {
+.teja-app-root #teja-academy-home .sg-about-title {
   color: var(--teja-purple) !important;
-  font-weight: 800 !important;
 }
-.teja-app-root .sg-about-body {
-  color: var(--teja-text) !important;
-  font-size: 16px !important;
-  line-height: 1.75 !important;
-}
-.teja-app-root .sg-about-feature {
-  border-bottom: 1px solid var(--teja-pink-border) !important;
-  padding-bottom: 16px !important;
-}
-.teja-app-root .sg-about-feature .sg-feature-icon {
-  background-color: #FFE6F4 !important;
-  color: var(--teja-magenta) !important;
-  border: 1px solid rgba(233, 0, 127, 0.25) !important;
-}
-.teja-app-root .sg-about-feature .sg-feature-label {
-  color: var(--teja-purple) !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  line-height: 1.45 !important;
-}
-.teja-app-root .sg-about-image-container {
-  border: 2px solid rgba(233, 0, 127, 0.25) !important;
-  box-shadow: 0 12px 36px rgba(53, 16, 111, 0.1) !important;
-  border-radius: 20px !important;
-  background: #FFEAF5 !important;
-}
-.teja-app-root .sg-about-img {
-  object-fit: cover !important;
-}
-.teja-app-root .sg-text-btn {
-  color: var(--teja-magenta) !important;
-  font-weight: 800 !important;
-  font-size: 16px !important;
-  transition: all 0.2s ease !important;
-}
-.teja-app-root .sg-text-btn:hover {
-  color: var(--teja-magenta-dark) !important;
-  transform: translateX(4px);
-}
-
-.teja-app-root .sg-result-block {
+.teja-app-root #teja-academy-home .sg-about-feature {
   background: var(--teja-white) !important;
-  border: 1px solid var(--teja-pink-border) !important;
+  border: 1px solid var(--teja-magenta) !important;
+  border-radius: 12px !important;
+  padding: 12px 18px !important;
+  margin-bottom: 8px !important;
 }
-.teja-app-root .sg-result-block h3 {
-  color: var(--teja-magenta) !important;
-}
-.teja-app-root .sg-result-block-icon {
+.teja-app-root #teja-academy-home .sg-about-feature .sg-feature-label {
   color: var(--teja-purple) !important;
-}
-.teja-app-root .sg-year-tab.active {
-  background: var(--teja-magenta) !important;
-  color: var(--teja-white) !important;
+  font-weight: 700 !important;
 }
 
-/* Campus Facilities Cards */
+/* =========================================
+   CAMPUS & FACILITIES
+   ========================================= */
+.teja-app-root .sg-card {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  transition: all 0.3s ease !important;
+}
+.teja-app-root .sg-card:hover {
+  border-color: var(--teja-magenta) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(53, 16, 111, 0.10) !important;
+}
 .teja-app-root .sgf-card {
   background: var(--teja-white) !important;
-  border: 1px solid var(--teja-pink-border) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
 }
 .teja-app-root .sgf-icon-wrap {
-  background: #FFEAF5 !important;
+  background: var(--teja-purple-soft) !important;
   color: var(--teja-magenta) !important;
+  border-radius: 14px !important;
 }
 .teja-app-root .sgf-tag {
   color: var(--teja-magenta) !important;
+  font-weight: 700 !important;
 }
 .teja-app-root .sgf-title {
   color: var(--teja-purple) !important;
+  font-weight: 800 !important;
+}
+.teja-app-root .sgf-desc {
+  color: var(--teja-text-secondary) !important;
 }
 
-/* Focus Features */
-.teja-app-root .sg-focus-item {
+/* =========================================
+   SECTION BACKGROUND HELPERS
+   ========================================= */
+.teja-app-root .sg-section-white {
+  background-color: var(--teja-white) !important;
+}
+.teja-app-root .sg-section-cream {
+  background-color: var(--teja-bg-alt) !important;
+}
+.teja-app-root .sg-split-img {
   background: var(--teja-white) !important;
-  border: 1px solid var(--teja-pink-border) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
 }
-.teja-app-root .sg-focus-icon {
-  background: #FFE6F4 !important;
-  color: var(--teja-magenta) !important;
-}
-.teja-app-root .sg-focus-item h4 {
-  color: var(--teja-purple) !important;
+.teja-app-root .sg-split-img img {
+  border-radius: 20px !important;
 }
 
-/* Final Admissions CTA Banner (Deep Purple + Magenta) */
+/* =========================================
+   ADMISSIONS CTA BANNER (LIGHT PREMIUM THEME)
+   ========================================= */
 .teja-app-root .sg-cta-banner,
 .teja-app-root .sg-statement-section {
-  background: linear-gradient(135deg, var(--teja-purple) 0%, #4D168E 60%, var(--teja-magenta-dark) 100%) !important;
+  background: var(--teja-bg-alt) !important;
+  border-top: 1px solid var(--teja-border) !important;
+  border-bottom: 1px solid var(--teja-border) !important;
   position: relative;
+  padding: 84px 24px !important;
 }
 .teja-app-root .sg-cta-banner h2,
 .teja-app-root .sg-statement-text {
-  color: var(--teja-white) !important;
+  color: var(--teja-purple) !important;
+  font-size: 38px !important;
+  font-weight: 800 !important;
 }
 .teja-app-root .sg-cta-banner p,
 .teja-app-root .sg-statement-line {
-  color: #F8E6F5 !important;
+  color: var(--teja-text-secondary) !important;
+  font-size: 16.5px !important;
 }
 .teja-app-root .sg-cta-banner .sg-btn-primary {
-  background: var(--teja-yellow) !important;
-  color: var(--teja-purple) !important;
-  border-color: var(--teja-yellow) !important;
+  background: var(--teja-magenta) !important;
+  color: var(--teja-white) !important;
+  border-color: var(--teja-magenta) !important;
 }
 .teja-app-root .sg-cta-banner .sg-btn-primary:hover {
+  background: var(--teja-magenta-dark) !important;
+  border-color: var(--teja-magenta-dark) !important;
+}
+.teja-app-root .sg-cta-banner .sg-btn-outline {
   background: var(--teja-white) !important;
-  color: var(--teja-magenta) !important;
+  border: 2px solid var(--teja-purple) !important;
+  color: var(--teja-purple) !important;
+  border-radius: 9999px !important;
+}
+.teja-app-root .sg-cta-banner .sg-btn-outline:hover {
+  background: var(--teja-purple-soft) !important;
 }
 
-/* Footer (Deep Purple Authority) */
+/* =========================================
+   FOOTER (DEEP PURPLE AUTHORITY CONTRAST)
+   ========================================= */
 .teja-app-root .sg-footer,
 .teja-app-root .app-footer {
-  background-color: var(--teja-purple-dark) !important;
-  border-top: 2px solid var(--teja-magenta) !important;
+  background-color: var(--teja-purple) !important;
+  border-top: 3px solid var(--teja-magenta) !important;
+  color: var(--teja-white) !important;
+  padding: 64px 0 24px 0 !important;
 }
 .teja-app-root .sg-footer-title,
 .teja-app-root .footer-col-title {
-  color: var(--teja-yellow) !important;
+  color: var(--teja-gold) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
   letter-spacing: 0.1em !important;
 }
 .teja-app-root .sg-footer-link-btn,
@@ -516,7 +631,7 @@
 .teja-app-root .sg-contact-item,
 .teja-app-root .contact-address-text,
 .teja-app-root .footer-phone-link {
-  color: #E6D8F2 !important;
+  color: #E8E0F0 !important;
 }
 .teja-app-root .sg-footer-link-btn:hover,
 .teja-app-root .footer-link-btn:hover,
@@ -525,16 +640,245 @@
 }
 .teja-app-root .sg-contact-item svg,
 .teja-app-root .c-icon {
-  color: var(--teja-yellow) !important;
+  color: var(--teja-gold) !important;
 }
 .teja-app-root .sg-footer-bottom,
 .teja-app-root .footer-bottom-bar,
 .teja-app-root .copyright-text {
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  color: #A996BE !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #C8BED2 !important;
+  padding-top: 20px !important;
+  margin-top: 40px !important;
 }
 
-/* Image Shadows & Radii */
-.teja-app-root img {
-  border-radius: 12px;
+/* =========================================
+   PERFECT IMAGE & TEXT ALIGNMENT SYSTEM
+   ========================================= */
+
+/* 1. Hero Section Split Alignment */
+.teja-app-root .sg-hero-content-wrapper {
+  display: grid !important;
+  grid-template-columns: 1.05fr 0.95fr !important;
+  gap: 48px !important;
+  align-items: center !important;
 }
+.teja-app-root .sg-hero-text-content {
+  flex: none !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+.teja-app-root .sg-hero-image-wrapper {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 32px rgba(53, 16, 111, 0.08) !important;
+  overflow: hidden !important;
+  height: 420px !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.teja-app-root .sg-hero-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 35% !important;
+  border-radius: 16px !important;
+  display: block !important;
+}
+
+/* 2. Inner Hero Image & Text Alignment (Wide Rectangular Landscape Aspect) */
+.teja-app-root .sg-inner-hero-inner {
+  display: grid !important;
+  grid-template-columns: 1.25fr 0.75fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+.teja-app-root .sg-inner-hero-text {
+  flex: none !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+.teja-app-root .sg-inner-hero-image {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  height: 250px !important;
+  aspect-ratio: 16 / 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  justify-self: end !important;
+}
+.teja-app-root .sg-inner-hero-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 35% !important;
+  background: var(--teja-white) !important;
+  display: block !important;
+  border-radius: 16px !important;
+}
+
+/* 3. Achievements Section Alignment */
+.teja-app-root .sg-achievements-grid-split {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+.teja-app-root .sg-achievements-img-card {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  overflow: hidden !important;
+  height: 380px !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+.teja-app-root .sg-achievements-group-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  background: var(--teja-white) !important;
+  display: block !important;
+  border-radius: 20px !important;
+}
+
+/* 4. About / Philosophy / Academy Split Alignment */
+.teja-app-root .sg-about-wrapper {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+.teja-app-root .sg-about-image-side {
+  flex: none !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.teja-app-root .sg-about-image-container {
+  border: 1px solid var(--teja-border) !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  border-radius: 16px !important;
+  background: var(--teja-white) !important;
+  overflow: hidden !important;
+  height: 380px !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.teja-app-root .sg-about-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  background: var(--teja-white) !important;
+  border-radius: 16px !important;
+}
+
+/* 5. General Split Layout Alignment */
+.teja-app-root .sg-split {
+  display: grid !important;
+  grid-template-columns: 1fr 1.1fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+.teja-app-root .sg-split-left {
+  flex: none !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.teja-app-root .sg-split-img {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  overflow: hidden !important;
+  height: 360px !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.teja-app-root .sg-split-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  background: var(--teja-white) !important;
+  border-radius: 16px !important;
+  display: block !important;
+}
+
+/* 6. Student Life Activity Strip Alignment & Lab Focal Fix */
+.teja-app-root .sg-activity-item,
+.teja-app-root .sg-activity-item.reverse {
+  display: grid !important;
+  grid-template-columns: 1fr 1.1fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+.teja-app-root .sg-activity-item.reverse {
+  grid-template-columns: 1.1fr 1fr !important;
+}
+.teja-app-root .sg-activity-img {
+  background: var(--teja-white) !important;
+  border: 1px solid var(--teja-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(53, 16, 111, 0.06) !important;
+  overflow: hidden !important;
+  height: 340px !important;
+  width: 100% !important;
+  flex: none !important;
+}
+.teja-app-root .sg-activity-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 85% !important;
+  background: var(--teja-white) !important;
+  display: block !important;
+  border-radius: 16px !important;
+}
+
+/* Specific focal position override for vertical science lab images */
+.teja-app-root img[src*="teja_science_lab"],
+.teja-app-root img[src*="science_lab"] {
+  object-position: center 85% !important;
+}
+
+@media (max-width: 1024px) {
+  .teja-app-root .sg-hero-content-wrapper,
+  .teja-app-root .sg-inner-hero-inner,
+  .teja-app-root .sg-achievements-grid-split,
+  .teja-app-root .sg-about-wrapper,
+  .teja-app-root .sg-split,
+  .teja-app-root .sg-activity-item,
+  .teja-app-root .sg-activity-item.reverse {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* Smooth Radii */
+.teja-app-root img {
+  border-radius: 16px;
+}
+
+

@@ -345,7 +345,7 @@ const tejaCollegeData = {
           eyebrow: "ACADEMICS & COMPETITIVE PREP",
           title: "Prepare Beyond the Classroom",
           subtitle: "Teja Junior College focuses on helping students prepare for major competitive examinations alongside their Intermediate education.",
-          image: "/teja/gallery/teja_science_lab.png"
+          image: "/teja/gallery/teja_campus_corridor.png"
         },
         {
           id: "academics-intro",
@@ -486,7 +486,7 @@ const tejaCollegeData = {
           eyebrow: "CAMPUS HIGHLIGHTS & FACILITIES",
           title: "World-Class Infrastructure & Learning Environment",
           subtitle: "6-Acre campus, 5 laboratories, 50-computer CBT lab, 5,000+ library books, and 3-acre playground.",
-          image: "/teja/gallery/teja_main_building.png"
+          image: "/teja/gallery/teja_seminar_hall_assembly.jpg"
         },
         {
           id: "facilities-list",
